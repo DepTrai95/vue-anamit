@@ -1,7 +1,7 @@
 <template>
    <div class="stage">
       <div class="stage__background">
-         <img src="/img/stage-background.jpg" alt="">
+         <img src="/img/stage-background.webp" alt="">
       </div>
       <hgroup class="stage__headline">
          <h1>Anamit - Vietnamese Authentic</h1>

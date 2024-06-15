@@ -33,15 +33,7 @@ hgroup {
 .inner {
    margin: 0 auto;
    max-width: $content-max-width - (2 * $content-padding);
-   padding: 0 20px;
-
-   @include for-tablet-portrait-up {
-      padding: 0 40px;
-   }
-
-   @include for-desktop-up {
-      padding: 0 60px;
-   }
+   padding: 0 $content-padding;
 }
 
 img {
