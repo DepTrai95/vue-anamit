@@ -1,7 +1,17 @@
 <template>
    <div class="stage" :class="{ 'stage__half-height': !headerHeightMax }">
       <div class="stage__background">
-         <img v-if="showBackground" src="/img/stage-background.webp" alt="">
+         <picture v-if="showBackground">
+            <source 
+               type="image/webp" 
+               srcset="
+                  /img/stage-background-small.webp 400w,
+                  /img/stage-background-medium.webp 600w,
+                  /img/stage-background-large.webp 1200w
+               " 
+               sizes="(max-width: 599px) 400px, (max-width: 899px) 600px, 1200px" />
+            <img src="/img/stage-background-large.webp" width="1200" height="600" alt=""/>
+         </picture>
       </div>
       <hgroup class="stage__headline">
          <h1>{{ headline }}</h1>

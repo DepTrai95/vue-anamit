@@ -36,6 +36,16 @@ hgroup {
    padding: 0 $content-padding;
 }
 
+picture {
+   display: block;
+   height: 100%;
+   
+   img {
+      height: auto;
+      width: 100%;
+   }
+}
+
 img {
    width: 100%;
 }

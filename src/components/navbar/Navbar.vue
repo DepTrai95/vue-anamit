@@ -85,6 +85,12 @@ export default {
    methods: {
       toggleMenu() {
          this.isMenuExpanded = !this.isMenuExpanded;
+
+         if (this.isMenuExpanded) {
+            document.body.style.overflow = 'hidden';
+         } else {
+            document.body.removeAttribute('style');
+         }
       },
       throttledCheckIsMobile() {
          if (!this.throttleTimeout) {
@@ -98,20 +104,16 @@ export default {
          this.isMobile = window.innerWidth <= 599;
       },
       handleHeaderVisibility (currentScrollPos) {
-         const navbar = document.querySelector(".navbar");
          let prevScrollPos = window.pageYOffset;
 
          if (currentScrollPos < 300) {
-            navbar.classList.remove('navbar--inverted');
             this.isInverted = false;
             return;
          }
 
          if (prevScrollPos > currentScrollPos) {
-            navbar.classList.remove('navbar--inverted');
             this.isInverted = false;
          } else {
-            navbar.classList.add('navbar--inverted');
             this.isInverted = true;
          }
 
@@ -137,40 +139,30 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
+   .header--inverted & {
+      color: $color-header;
+   }
+
    .inner {
-      background-color: transparent;
-      color: $color-white;
       display: flex;
       flex-direction: row-reverse;
-      inset-inline: 0;
       padding: 1rem;
-      position: absolute;
-      transition: background-color 0.25s ease-in-out;
-      width: 100%;
-      z-index: 1000;
-   
+      
       @include for-phone-only {
          height: $header-height-mobile;
       }
-   
+
       @include for-tablet-portrait-up {
          flex-direction: row;
          justify-content: space-between;
+         inset-inline: 0;
          padding: 1.5rem 2.5rem;
          position: fixed;
       }
    }
 }
 
-.navbar--inverted {
-   .inner {
-      background-color: $color-white;
-      color: $color-header;
-   }    
-}
-
 .is-open {
-   background-color: $color-background;
    bottom: 0;
    left: 0;
    position: fixed;
@@ -250,7 +242,7 @@ export default {
 .menu-toggle {
    background-color: transparent;
    border: 0;
-   color: $color-white;
+   color: currentColor;
    cursor: pointer;
    height: 3.6rem;
    padding: 10px;

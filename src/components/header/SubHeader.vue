@@ -2,7 +2,18 @@
    <div :id="subHeader.id" class="subheader">
       <div class="hero__container two-thirds-height">
          <div class="hero__container__image">
-            <img :src="subHeader.imgSrc" class="hero__image" loading="lazy" alt="">
+             <picture>
+               <source 
+                  type="image/webp" 
+                  :srcset="generateSrcset(subHeader.imgSrc, 'webp')" 
+                  sizes="(max-width: 599px) 400px, (max-width: 899px) 600px, 1200px" />
+               <img 
+                  :src="subHeader.imgSrc"
+                  :width="subHeader.width"
+                  class="hero__image"
+                  loading="lazy" 
+                  alt="" />
+            </picture>
          </div>
          <div class="hero__container__heading">
             <hgroup>
@@ -22,6 +33,19 @@ export default {
          required: true
       },
    },
+   methods: {
+      generateSrcset(imgSrc, format) {
+         const smallSrc = imgSrc.replace(/\.(jpg|png|webp)/, `-small.${format}`);
+         const mediumSrc = imgSrc.replace(/\.(jpg|png|webp)/, `-medium.${format}`);
+         const largeSrc = imgSrc.replace(/\.(jpg|png|webp)/, `-large.${format}`);
+         return `
+            ${smallSrc} 400w,
+            ${mediumSrc} 600w,
+            ${largeSrc} 1200w
+         `;
+      }
+   }
+
 };
 </script>
 
