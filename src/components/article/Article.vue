@@ -99,6 +99,10 @@ export default {
       font-family: "HerrVonMuellerhoff", "Brush Script MT Italic", sans-serif;
       font-weight: 400;
       text-align: center;
+
+      @include for-tablet-portrait-up {
+         @include responsive-font-size(10rem, 10.5rem);
+      }
    }
 }
 
@@ -116,7 +120,7 @@ export default {
 
    a {
       @include responsive-font-size(2rem, 2.1rem);
-      color: $color-primary;
+      color: $color-primary-dark;
       text-transform: uppercase;
       overflow: hidden;
       padding-block: 1rem;

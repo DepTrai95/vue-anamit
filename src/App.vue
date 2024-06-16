@@ -1,4 +1,5 @@
 <template>
+  <SVGList></SVGList>
   <Header></Header>
   <router-view v-slot="slotProps">
     <transition name="route" mode="out-in" @before-enter="beforeEnter">
@@ -9,11 +10,13 @@
 </template>
 
 <script>
+import SVGList from './assets/svg/SVGList.vue';
 import Header from './components/header/Header.vue';
 import Footer from './components/footer/Footer.vue';
 
 export default {
   components: {
+    SVGList,
     Header,
     Footer,
   },

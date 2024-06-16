@@ -59,9 +59,14 @@ export default {
    text-align: center;
 
    .h1 {
-         color: $color-white;
-         margin: 0;
+      color: $color-white;
+      margin: 0;
+      margin-block-start: -3rem;
+
+      @include for-tablet-landscape-up {
+         @include responsive-font-size(4.5rem, 4.8rem);
       }
+   }
    
    .h2 {
       @include responsive-font-size(8.5rem, 10rem);
@@ -69,6 +74,10 @@ export default {
       font-family: "HerrVonMuellerhoff", "Brush Script MT Italic", sans-serif;
       font-weight: 400;
       text-align: center;
+
+      @include for-tablet-landscape-up {
+         @include responsive-font-size(10rem, 10.5rem);
+      }
    }
 }
 </style>
