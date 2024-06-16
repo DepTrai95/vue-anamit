@@ -14,12 +14,16 @@
          <div class="footer__opening-hours">
             <h3>ÖFFNUNGSZEITEN:</h3>
             <p>
-               Mo. - Fr.:<br>
-               11:30 - 15:00 Uhr<br>
-               17:00 - 23:00 Uhr
+               Montag - Freitag:<br>
+               12:30 - 14:30 Uhr<br>
+               17:00 - 22:30 Uhr
             </p>
-            <p>Sa., So., Feiertage:<br>
-               11:30 - 23:00 Uhr
+            <p>Samstage und Feiertage:<br>
+               12:00 - 23:00 Uhr
+            </p>
+            <p>
+               Sonntage:<br>
+               12:00 - 22:30 Uhr
             </p>
          </div>
       </div>
@@ -28,7 +32,9 @@
             <ul class="copyright__area__container__list">
                <LinkRouter link="/impressum" label="Impressum" />
                <LinkRouter link="/contact" label="Kontakt" />
-               <LinkRouter link="/impressum" label="Anamit on Facebook" />
+               <li>
+                  <a href="https://www.facebook.com/anamit.restaurant/">Anamit on Facebook</a>
+               </li>
             </ul>
          </div>
       </div>
@@ -62,6 +68,7 @@ export default {
 
 .restaurant__information {
    margin-inline: 2rem;
+   padding-block: 5rem;
 
    @include for-tablet-portrait-up {
       margin: 0 auto;
@@ -72,19 +79,23 @@ export default {
 .copyright__area {
    background-color: $color-background-copyright;
    color: $color-body-copyright;
-   padding-block: 4rem 4rem;
+   padding-block: 4rem;
 
    @include for-tablet-portrait-up {
       padding-block: 6rem 5rem;   
    }
 }
+.copyright__area__container {
+
+}
 
 .copyright__area__container__list {
    display: flex;
    flex-direction: row;
+   flex-wrap: wrap;
    justify-content: center;
    margin: 0;
-   padding: 0;
+   padding-inline: 3rem;
 }
 </style>
 
@@ -94,10 +105,12 @@ export default {
    display: flex;
 
    li {
-      &::after {
-         content: "\2022";
-         font-size: 2rem;
-         margin: 0 0.5rem;
+      @include for-tablet-landscape-up {
+         &::after {
+            content: "\2022";
+            font-size: 2rem;
+            margin: 0 0.5rem;
+         }
       }
 
       a {
@@ -106,11 +119,12 @@ export default {
          display: flex;
          letter-spacing: 1px;
          line-height: 1.2;
-         margin-inline: 0.6rem;
+         margin-block: 0.25rem;
+         margin-inline: 1rem;
          padding: 0.6rem 0;
          text-transform: uppercase;
       }
-
+      
       &:last-child::after {
          content: "";
       }

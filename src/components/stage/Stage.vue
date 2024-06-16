@@ -1,17 +1,35 @@
 <template>
-   <div class="stage">
+   <div class="stage" :class="{ 'stage__half-height': !headerHeightMax }">
       <div class="stage__background">
-         <img src="/img/stage-background.webp" alt="">
+         <img v-if="showBackground" src="/img/stage-background.webp" alt="">
       </div>
       <hgroup class="stage__headline">
-         <h1>Anamit - Vietnamese Authentic</h1>
-         <h2>Welcome - Xin chào</h2>
+         <h1>{{ headline }}</h1>
+         <h2 v-if="showSubHeader">Welcome - Xin chào</h2>
       </hgroup>
    </div>
 </template>
 
 <script>
    export default {
+      props: {
+         headerHeightMax: {
+            type: Boolean,
+            default: false,
+         },
+         headline: {
+            type: String,
+            required: true,
+         },
+         showSubHeader: {
+            type: Boolean,
+            default: false,
+         },
+         showBackground: {
+            type: Boolean,
+            default: false,
+         },
+      },
       
    }
 </script>
@@ -22,7 +40,12 @@
    position: relative;
 }
 
+.stage__half-height {
+   min-height: 50vh;
+}
+
 .stage__background {
+   background-color: #333;
    inset: 0;
    position: absolute;
 
@@ -44,6 +67,14 @@
    h1 {
       color: $color-white;
       margin: 0;
+   }
+
+   h2 {
+     @include responsive-font-size(8.5rem, 10rem);
+      color: $color-secondary;
+      font-family: "HerrVonMuellerhoff", "Brush Script MT Italic", sans-serif;
+      font-weight: 400;
+      text-align: center;
    }
 }
 </style>

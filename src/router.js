@@ -2,21 +2,52 @@ import { createRouter } from "vue-router";
 import { createWebHistory } from "vue-router";
 
 import Home from "./pages/home/HomePage.vue";
-// import OurMenu from "./components/pages/menu/OurMenu.vue";
-// import ContactUs from "./components/pages/contact/ContactUs.vue";
-// import Success from "./components/pages/success/Success.vue";
-// import Impress from "./components/pages/impress/Impress.vue";
-// import NotFound from "./components/pages/NotFound.vue";
+import Menu from "./pages/menu/Menu.vue";
+import Contact from "./pages/contact/ContactPage.vue";
+import Impress from "./pages/impress/Impress.vue";
+// import Success from "./pages/success/Success.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: Home },
-    // { path: "/menu", component: OurMenu },
-    // { path: "/contact", component: ContactUs },
+    { path: "/", 
+      component: Home,
+      meta: {
+        headerHeightMax: true,
+        headline: 'Anamit - Vietnamese Authentic',
+        showSubHeader: true,
+        showBackground: true,
+      }
+    },
+    { path: "/menu", 
+      component: Menu, 
+      meta: { 
+        headline: 'Unser Menu',
+        showBackground: true,
+      } 
+    },
+    { path: "/contact", 
+      component: Contact, 
+      meta: { 
+        headline: 'Contact us',
+        showBackground: true,
+      } 
+    },
+    { path: "/impressum", 
+      component: Impress, 
+      meta: { 
+        headline: 'Impressum',
+      } 
+    },
     // { path: "/success", component: Success },
-    // { path: "/impressum", component: Impress },
-    // { path: "/:notFound(.*)", component: NotFound },
+    { path: "/:notFound(.*)", 
+      component: NotFound, 
+      meta: { 
+        headline: 'Not Found',
+        showBackground: false,
+      }
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     return { top: 0 }

@@ -92,6 +92,14 @@ export default {
 
 .article__content__heading {
    text-align: center;
+
+   h2 {
+     @include responsive-font-size(8.5rem, 10rem);
+      color: $color-secondary;
+      font-family: "HerrVonMuellerhoff", "Brush Script MT Italic", sans-serif;
+      font-weight: 400;
+      text-align: center;
+   }
 }
 
 .article__content__separator {
@@ -108,9 +116,8 @@ export default {
 
    a {
       @include responsive-font-size(2rem, 2.1rem);
-      color: $color-secondary;
+      color: $color-primary;
       text-transform: uppercase;
-      line-height: 1.3;
       overflow: hidden;
       padding-block: 1rem;
       position: relative;
@@ -120,7 +127,7 @@ export default {
 
       &:hover,
       &:focus {
-         color: $color-secondary;
+         color: $color-primary;
       }
 
       &::before {

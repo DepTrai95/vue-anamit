@@ -60,7 +60,7 @@
     <!-- MESSAGE -->
     <div class="form-group" :class="{ invalid: !message.isValid }">
       <label for="message">
-        Nachricht <abbr title="Pflichtfeld">*</abbr>
+        Ihre Nachricht <abbr title="Pflichtfeld">*</abbr>
       </label>
       <textarea
         class="form-control"
@@ -95,7 +95,12 @@
 </template>
 
 <script>
+import BaseButton from '../button/BaseButton.vue';
+
 export default {
+  components: {
+    BaseButton,
+  },
   data() {
     return {
       name: {
@@ -237,11 +242,8 @@ function generateRandomMathProblem() {
 </script>
 
 <style lang="scss" scoped>
-
 .form {
-  background-color: $color-primary-lightest;
-  border-radius: 4px;
-  padding: 2rem;
+  padding-top: 3rem;
 
   @include for-tablet-portrait-up {
     padding: 3.5rem;
@@ -257,8 +259,8 @@ function generateRandomMathProblem() {
 }
 
 .form-control {
-  @include responsive-font-size(1.6rem, 1.8rem);
-  border: 2px solid transparent;
+  @include responsive-font-size(1.8rem, 1.9rem);
+  border: 2px solid #51515137;
   border-radius: 4px;
   display: block;
   color: $color-body;
@@ -273,12 +275,12 @@ function generateRandomMathProblem() {
   &:hover,
   &:focus,
   &:focus-visible {
-    border: 2px solid $color-primary;
+    border: 2px solid $color-secondary;
   }
 }
 
 label {
-  @include responsive-font-size(1.6rem, 1.8rem);
+  @include responsive-font-size(1.8rem, 1.9rem);
   color: $color-body;
   display: block;
   font-weight: 500;
@@ -292,7 +294,7 @@ textarea {
 .invalid {
   label,
   p {
-    @include responsive-font-size(1.6rem, 1.8rem);
+    @include responsive-font-size(1.8rem, 1.9rem);
     color: $color-error;
     margin-top: 0.5rem;
   }
@@ -313,7 +315,7 @@ textarea {
 }
 
 .p-inputtext {
-  @include responsive-font-size(1.6rem, 1.8rem);
+  @include responsive-font-size(1.8rem, 1.9rem);
   border: 2px solid transparent;
   border-radius: 4px;
   box-shadow: none;
@@ -325,7 +327,7 @@ textarea {
   &:focus,
   &:focus-within,
   &:focus-visible {
-    border: 2px solid $color-primary;
+    border: 2px solid $color-secondary;
   }
 
   &:focus {
