@@ -1,6 +1,6 @@
 <template>
    <header class="header">
-      <!-- <the-navbar></the-navbar> -->
+      <the-navbar></the-navbar>
       <the-stage 
          :headerHeightMax="headerHeightMax"
          :headline="headline" 

@@ -5,7 +5,7 @@
             <div class="grid--default grid-2--tablet-landscape-up">
                <div class="grid-item">
                   <div class="reservation-info">
-                     <p class="text-center">
+                     <p class="center">
                         Wir nehmen jeden Tag gerne Reservierungen entgegen und sind zu
                         folgenden Öffnungszeiten telefonisch erreichbar:
                         <span>{{ lunchTime }}</span>
@@ -62,10 +62,17 @@ export default {
 }
 
 .reservation-info {
-   align-items: center;
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
+   
+   @include for-phone-only {
+      align-items: center;
+
+      .center {
+         text-align: center;
+      }
+   }
 
    span {
       display: block;

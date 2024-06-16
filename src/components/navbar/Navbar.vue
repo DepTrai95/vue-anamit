@@ -1,9 +1,9 @@
 <template>
-   <div>
+   <div class="navbar" :class="{'is-open': isMenuExpanded}">
       <div class="logo__container">
          <div class="logo">
             <router-link to="/">
-               <img src="/img/anamit.png" alt="zur Startseite" height="80" width="80" />
+               <img src="/img/anamit.png" alt="zur Startseite" height="50" width="140" />
             </router-link>
          </div>
       </div>
@@ -34,7 +34,7 @@
                <ul class="list--unstyled">
                   <LinkRouter link="/" label="Home" />
                   <LinkRouter link="/menu" label="Menu" />
-                  <LinkRouter link="/contact" label="Contact" />
+                  <LinkRouter link="/contact" label="Kontakt" />
                </ul>
             </nav>
          </div>
@@ -84,11 +84,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
+.navbar {
+   background: transparent;
+   color: $color-white;
+   display: flex;
+   flex-direction: row-reverse;
    padding: 1rem;
+   position: absolute;
+   width: 100%;
+   z-index: 1000;
 
    @include for-phone-only {
       height: $header-height-mobile;
+   }
+
+   @include for-tablet-landscape-up {
+      flex-direction: row;
+      justify-content: space-between;
    }
 
    .inner {
@@ -97,7 +109,7 @@ export default {
    }
 }
 
-.header-is-open {
+.is-open {
    background-color: $color-background;
    bottom: 0;
    left: 0;
@@ -108,9 +120,11 @@ export default {
 }
 
 .logo__container {
-   width: auto;
-
+   align-items: center;
+   display: flex;
+   
    @include for-phone-only {
+      flex-grow: 1;
       z-index: 1000;
    }
 
@@ -121,8 +135,8 @@ export default {
 
       img {
          @include for-phone-only {
-            height: 60px;
-            width: 60px;
+            height: 50px;
+            width: 140px;
          }
       }
    }
@@ -132,8 +146,7 @@ export default {
    @include for-phone-only {
       align-items: center;
       display: flex;
-      flex: 1 1 0;
-      justify-content: flex-end;
+      flex-grow: 1;
       position: relative;
    }
 
@@ -142,7 +155,7 @@ export default {
 
       @include for-phone-only {
          align-items: center;
-         background: $color-background;
+         background: $color-header;
          display: flex;
          height: 100%;
          justify-content: center;
@@ -154,21 +167,26 @@ export default {
       }
    }
 
-   .nav-main li {
-      @include responsive-font-size(2rem, 2.4rem);
-      justify-content: center;
-      padding: 20px;
-      width: 100%;
+   .nav-main {
+      li {
+         @include responsive-font-size(1.8rem, 2rem);
+         color: $color-white;
+         justify-content: center;
+         padding: 10px;
+         text-transform: uppercase;
+         width: 100%;
+      }
    }
 }
 
 .menu-toggle {
    background-color: transparent;
    border: 0;
+   color: $color-white;
    cursor: pointer;
-   height: 4rem;
+   height: 3.6rem;
    padding: 10px;
-   width: 4rem;
+   width: 3.6rem;
 
    @include for-phone-only {
       z-index: 1000;
@@ -189,24 +207,23 @@ export default {
 
       &:first-child {
          top: 0;
-         width: 20px;
+         width: 25px;
       }
 
       &:nth-child(2) {
          top: 50%;
-         width: 12px;
+         width: 25px;
       }
 
       &:nth-child(3) {
          top: 100%;
-         width: 20px;
+         width: 25px;
       }
    }
 }
 
 .hamburger.is-open span:nth-child(1) {
-   transform: translateY(10px) rotate(-45deg);
-   width: 22px;
+   transform: translateY(7px) rotate(-45deg);
 }
 
 .hamburger.is-open span:nth-child(2) {
@@ -214,8 +231,7 @@ export default {
 }
 
 .hamburger.is-open span:nth-child(3) {
-   transform: translateY(-10px) rotate(45deg);
-   width: 22px;
+   transform: translateY(-9px) rotate(45deg);
 }
 
 .nav-main__wrapper {
@@ -226,7 +242,7 @@ export default {
 
 .nav-main {
    li {
-      padding-inline: 2rem;
+      padding-inline: 1.5rem;
       text-align: center;
    }
 }

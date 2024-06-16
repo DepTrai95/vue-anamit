@@ -1,7 +1,8 @@
 <template>
    <section class="page__content">
       <h2>
-         <a href="#">Speisekarte / Menu (PDF)</a>
+         <span class="sr-only">Öffne die Speisekarte als PDF</span>
+         <a href="/fileadmin/anamit-menu-14-02-2024.pdf">Speisekarte / Menu (PDF)</a>
       </h2>
    </section>
 </template>
@@ -19,15 +20,15 @@ export default {
 
 h2 {
    @include responsive-font-size(2.8rem, 3rem);
-   color: $color-primary; 
    letter-spacing: 2px;
    margin: 0;
    text-align: center;
-   text-transform: uppercase;
 }
 
 a {
+   color: $color-primary;
    text-decoration: underline;
+   text-transform: uppercase;
 
    &:hover::before {
       transform: scale3d(0, 1, 1);

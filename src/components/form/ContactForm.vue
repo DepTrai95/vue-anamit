@@ -3,14 +3,8 @@
     <!-- NAME -->
     <div class="form-group" :class="{ invalid: !name.isValid }">
       <label for="name"> Name <abbr title="Pflichtfeld">*</abbr> </label>
-      <input
-        class="form-control"
-        type="text"
-        id="name"
-        v-model.trim="name.val"
-        @blur="clearValidity('name')"
-        placeholder="Name"
-      />
+      <input class="form-control" type="text" id="name" v-model.trim="name.val" @blur="clearValidity('name')"
+        placeholder="Name" />
       <p v-if="!name.isValid" :class="{ invalid: !message.isValid }">
         Bitte geben Sie Ihren Namen an.
       </p>
@@ -18,42 +12,35 @@
     <!-- EMAIL -->
     <div class="form-group" :class="{ invalid: !email.isValid }">
       <label for="email"> E-Mail <abbr title="Pflichtfeld">*</abbr> </label>
-      <input
-        class="form-control"
-        type="email"
-        id="email"
-        v-model.trim="email.val"
-        @blur="clearValidity('email')"
-        placeholder="E-Mail"
-      />
+      <input class="form-control" type="email" id="email" v-model.trim="email.val" @blur="clearValidity('email')"
+        placeholder="E-Mail" />
       <p v-if="!email.isValid" :class="{ invalid: !message.isValid }">
         Das E-Mail Feld darf nicht leer sein!
       </p>
+    </div>
+    <!-- Restaurant selection -->
+    <div class="form-group">
+      <label for="select-restaurant"> Bitte ein Lokal auswählen <abbr title="Pflichtfeld">*</abbr> </label>
+      <select class="form-control" id="select-restaurant" name="select-restaurant" v-model="restaurant.val" required>
+        <option value="">--Bitte Auswahl treffen--</option>
+        <option value="Neustadt">Anamit - Neustadt</option>
+        <option value="BlauesWunder">Anamit - am Blauen Wunder</option>
+      </select>
     </div>
     <!-- DATEPICKER -->
     <div class="form-group" :class="{ invalid: !selectedDate.isValid }">
       <label for="selectedDate">
         Datum und Zeit <abbr title="Pflichtfeld">*</abbr>
       </label>
-      <Calendar
+      <VueDatePicker 
         v-model="selectedDate.val"
-        showIcon
-        inputId="selectedDate"
-        iconDisplay="input"
-        dateFormat="dd.mm.yy"
-        showTime
-        hourFormat="24"
-        :minDate="minDate"
-        :maxDate="maxDate"
-        :manualInput="false"
         class="customCalendarStyle"
-        @blur="clearValidity('selectedDate')"
-        placeholder="DD/MM/YYYY - HH:MM"
-      />
-      <p
-        v-if="!selectedDate.isValid"
-        :class="{ invalid: !selectedDate.isValid }"
+        :minDate="minDate" 
+        :maxDate="maxDate"
+        @blur="clearValidity('selectedDate')" placeholder="DD/MM/YYYY - HH:MM"
       >
+      </VueDatePicker>
+      <p v-if="!selectedDate.isValid" :class="{ invalid: !selectedDate.isValid }">
         Es muss ein Datum ausgewählt sein
       </p>
     </div>
@@ -62,14 +49,8 @@
       <label for="message">
         Ihre Nachricht <abbr title="Pflichtfeld">*</abbr>
       </label>
-      <textarea
-        class="form-control"
-        id="message"
-        rows="7"
-        v-model.trim="message.val"
-        @blur="clearValidity('message')"
-        placeholder="Ihre Nachricht"
-      ></textarea>
+      <textarea class="form-control" id="message" rows="7" v-model.trim="message.val" @blur="clearValidity('message')"
+        placeholder="Ihre Nachricht"></textarea>
       <p v-if="!message.isValid" :class="{ invalid: !message.isValid }">
         Nachricht darf nicht leer sein
       </p>
@@ -77,14 +58,8 @@
     <!-- RECHENAUFGABE -->
     <div class="form-group" :class="{ invalid: !mathProblem.isValid }">
       <label for="mathProblem">Rechenaufgabe: {{ mathProblem.example }} <abbr title="Pflichtfeld">*</abbr></label>
-      <input
-        class="form-control"
-        type="number"
-        id="mathProblem"
-        v-model.trim="mathProblem.val"
-        @blur="clearValidity('mathProblem')"
-        placeholder="Lösen Sie die Rechenaufgabe"
-      />
+      <input class="form-control" type="number" id="mathProblem" v-model.trim="mathProblem.val"
+        @blur="clearValidity('mathProblem')" placeholder="Lösen Sie die Rechenaufgabe" />
       <p v-if="!mathProblem.isValid" :class="{ invalid: !mathProblem.isValid }">
         Bitte lösen Sie die Rechenaufgabe korrekt.
       </p>
@@ -108,6 +83,10 @@ export default {
         isValid: true,
       },
       email: {
+        val: "",
+        isValid: true,
+      },
+      restaurant: {
         val: "",
         isValid: true,
       },
@@ -205,7 +184,7 @@ export default {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              to: "info@aroi-thaicuisine.de", // set email of receiver
+              to: "info@anamit.de", // set email of receiver
               name: formData.name,
               email: formData.email,
               text: formData.message,
@@ -239,6 +218,14 @@ function generateRandomMathProblem() {
   const operator = '+';
   return `${num1} ${operator} ${num2}`;
 }
+</script>
+
+<script setup>
+import { ref } from 'vue';
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css';
+
+const date = ref(null);
 </script>
 
 <style lang="scss" scoped>
@@ -306,58 +293,65 @@ textarea {
 }
 </style>
 
+<!-- Styling for Datepicker Component -->
 <style lang="scss">
-.p-calendar {
+.customCalendarStyle input {
+  @include responsive-font-size(1.6rem, 1.8rem);
+  border: 2px solid #51515137;
   border-radius: 4px;
+  display: block;
   color: $color-body;
+  font-family: inherit;
   min-height: 5rem;
+  outline: none;
+  padding: 1rem 3.5rem;
+  transition: border 0.3s;
   width: 100%;
-}
-
-.p-inputtext {
-  @include responsive-font-size(1.8rem, 1.9rem);
-  border: 2px solid transparent;
-  border-radius: 4px;
-  box-shadow: none;
-  color: $color-body;
-  padding: 1rem 2rem;
-  transition: background-color 0.3s, border-color 0.3s;
 
   &:hover,
   &:focus,
-  &:focus-within,
   &:focus-visible {
-    border: 2px solid $color-secondary;
-  }
-
-  &:focus {
-    background-color: $color-background;
+    border: 2px solid $color-secondary !important;
   }
 }
-.p-datepicker-month,
-.p-datepicker-year,
-.p-hour-picker > span,
-.p-minute-picker > span {
-  @include responsive-font-size(1.8rem, 2rem);
-  padding: 1.5rem 0;
+
+.dp__menu {
+  min-width: 300px;
 }
 
-.p-datepicker td > span {
-  padding: 2rem;
-}
-
-.p-datepicker-trigger-icon {
-  height: 2rem;
-  margin-top: -1rem;
-  width: 2rem;
-}
-
-.p-component,
-.p-datepicker-calendar {
+.dp__menu_inner,
+.dp__selection_preview {
   @include responsive-font-size(1.6rem, 1.8rem);
+  max-width: unset !important;
 }
 
-.p-datepicker .p-monthpicker .p-monthpicker-month {
-  padding: 1rem;
+.dp__action_button {
+  @include responsive-font-size(1.8rem, 1.9rem);
+  height: unset;
+  margin-inline-start: 1rem;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    border-color: $color-secondary !important;
+  }
+}
+
+.dp__action_select {
+  background: $color-header !important;
+
+  &:hover {
+    background: $color-secondary !important;
+  }
+}
+
+.dp__input_icons {
+  @include responsive-font-size(1.8rem, 1.9rem);
+  height: 1.6rem;
+  width: 1.6rem;
+  padding-inline-end: 3rem;
+}
+
+.dp--tp-wrap { //for clock-icon
+  max-width: unset;
 }
 </style>

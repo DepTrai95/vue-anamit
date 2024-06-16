@@ -85,6 +85,7 @@ export default {
       padding-block: 6rem 5rem;   
    }
 }
+
 .copyright__area__container {
 
 }
