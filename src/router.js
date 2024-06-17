@@ -44,7 +44,7 @@ const router = createRouter({
     { path: "/:notFound(.*)", 
       component: NotFound, 
       meta: { 
-        headline: 'Not Found',
+        headline: '404 - Page not found',
         showBackground: false,
       }
     },

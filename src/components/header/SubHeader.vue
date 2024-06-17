@@ -43,6 +43,25 @@ export default {
             ${mediumSrc} 600w,
             ${largeSrc} 1200w
          `;
+      },
+      observeElement(entries, observer) {
+         entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+               // Beispiel: Eine Klasse hinzufügen, um das Element zu animieren
+               entry.target.classList.add('fade-in');
+               observer.unobserve(entry.target);
+            }
+         });
+      },
+   },
+   mounted() {
+      const observer = new IntersectionObserver(this.observeElement, {
+         threshold: [0.7],
+      });
+
+      const headline = this.$el.querySelector("hgroup");
+      if (headline) {
+         observer.observe(headline);
       }
    }
 
@@ -101,6 +120,17 @@ export default {
 
       @include for-tablet-landscape-up {
          @include responsive-font-size(10rem, 10.5rem);
+      }
+   }
+
+   hgroup {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+
+      &.fade-in {
+         opacity: 1;
+         transform: translate(0);
       }
    }
 }

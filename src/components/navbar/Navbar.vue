@@ -24,6 +24,7 @@
                               <use href="#icon-facebook"></use>
                            </svg>
                         </span>
+                        <span class="sr-only">Besuche uns auf Facebook</span>
                      </a>
                   </li>
                </ul>

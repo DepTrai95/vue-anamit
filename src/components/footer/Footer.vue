@@ -33,6 +33,7 @@
          </svg>
          <div class="btn--top">
             <a href="#" class="btn--top_text">
+               <span class="sr-only">Gehe zum Start der Seite</span>
 					<span class="btn__arrow btn__arrow--top"></span>
 					<span class="btn__arrow btn__arrow--bottom"></span>
 				</a>

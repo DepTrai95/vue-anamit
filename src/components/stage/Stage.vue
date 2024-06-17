@@ -17,6 +17,9 @@
          <h1>{{ headline }}</h1>
          <h2 v-if="showSubHeader">Welcome - Xin chào</h2>
       </hgroup>
+      <div v-if="showSubHeader" class="stage__arrow-down" @click="scrollToNextSection">
+         <div class="arrow"></div>
+      </div>
    </div>
 </template>
 
@@ -40,7 +43,34 @@
             default: false,
          },
       },
-      
+      methods: {
+         scrollToNextSection() {
+            const nextSection = document.querySelector('.content');
+            const headerHeight = document.querySelector('header').offsetHeight;
+
+            if (nextSection) {
+               window.scrollTo({
+                  top: nextSection.offsetTop - headerHeight,
+                  behavior: 'smooth'
+               });
+            }
+         }
+      },
+      mounted() {
+         const header = document.querySelector('h1');
+         
+         setTimeout(() => {
+            header?.classList.add('visible');
+         }, 250);
+         
+         setTimeout(() => {
+            const headerDescr = document.querySelector('h2');
+            const arrow = document.querySelector('.stage__arrow-down');
+            
+            headerDescr?.classList.add('visible');
+            arrow?.classList.add('visible');
+         }, 400);
+      }
    }
 </script>
 
@@ -95,5 +125,61 @@
          @include responsive-font-size(10rem, 10.5rem);
       }
    }
+}
+
+// animation h1 and h2
+h1 {
+   opacity: 0;
+   transform: scale(1.2) translateY(15px);
+   transition: opacity 0.2s ease-in, transform 0.25s ease-in;
+
+   &.visible {
+      opacity: 1;
+      transform: scale(1) translateY(0);;
+   }
+}
+
+h2 {
+   opacity: 0;
+   transform: translateY(25px);
+   transition: opacity 0.15s ease-in, transform 0.2s ease-in;
+
+   &.visible {
+      opacity: 1;
+      transform: translateY(0);
+      ;
+   }
+}
+
+.stage__arrow-down {
+   bottom: 0;
+   cursor: pointer;
+   display: block;
+   height: 80px;
+   left: 50%;
+   opacity: 0;
+   position: absolute;
+   transform: translate(-50%, -50%);
+   transition: opacity 0.25s ease-in;
+   width: 80px;
+   z-index: 100;
+
+   &.visible {
+      opacity: 0.7;
+      
+   }
+}
+
+.stage__arrow-down .arrow {
+   border-bottom: 3px solid white;
+   border-right: 3px solid white;
+   height: 24px;
+   left: 50%;
+   margin-left: -12px;
+   margin-top: -12px;
+   position: absolute;
+   top: 50%;
+   transform: rotate(45deg);
+   width: 24px;
 }
 </style>
