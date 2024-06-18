@@ -75,6 +75,7 @@ export default {
 
 .two-thirds-height {
    min-height: calc(100vh / 1.5);
+   min-height: calc(100dvh / 1.5);
 }
 
 .hero__container {

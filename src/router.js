@@ -5,7 +5,7 @@ import Home from "./pages/home/HomePage.vue";
 import Menu from "./pages/menu/Menu.vue";
 import Contact from "./pages/contact/ContactPage.vue";
 import Impress from "./pages/impress/Impress.vue";
-// import Success from "./pages/success/Success.vue";
+import Success from "./pages/success/Success.vue";
 import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
@@ -40,7 +40,12 @@ const router = createRouter({
         headline: 'Impressum',
       } 
     },
-    // { path: "/success", component: Success },
+    { path: "/success", 
+      component: Success, 
+      meta: { 
+        headline: 'Formular abgeschickt',
+      } 
+    },
     { path: "/:notFound(.*)", 
       component: NotFound, 
       meta: { 

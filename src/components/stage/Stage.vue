@@ -77,11 +77,13 @@
 <style lang="scss" scoped>
 .stage {
    min-height: 100vh;
+   min-height: 100dvh;
    position: relative;
 }
 
 .stage__half-height {
    min-height: 50vh;
+   min-height: 50dvh;
 }
 
 .stage__background {

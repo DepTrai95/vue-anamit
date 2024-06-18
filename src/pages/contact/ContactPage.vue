@@ -19,19 +19,25 @@
             <div class="grid--default grid-2--tablet-landscape-up">
                <div class="grid-item">
                   <div class="reservation-info">
+                     <p>Anamit – Vietnamese Authentic</p>
                      <p class="center">
                         Wir nehmen jeden Tag gerne Reservierungen entgegen und sind zu
                         folgenden Öffnungszeiten telefonisch erreichbar:
                         <span>{{ lunchTime }}</span>
                         <span>{{ dinnerTime }}</span>
                      </p>
-                     <p>Anamit – Vietnamese Authentic</p>
-                     <p>Louisenstraße 30, 01099 Dresden</p>
-                     <p>Tel.: <a :href="`tel:`+numberNeustadt">{{ numberNeustadt }}</a></p>
-                     <p>ODER</p>
-                     <p>Tolkewitzer Str. 2, 01277 Dresden</p>
-                     <p>Tel.: <a :href="`tel:` + numberBlauesWunder">{{ numberBlauesWunder }}</a></p>
-                     <p>E-Mail: <a :href="`mailto:` + mailTo">info@anamit.de</a></p>
+                     <p class="center">
+                        Louisenstraße 30, 01099 Dresden<br>
+                        Tel.: <a :href="`tel:` + numberNeustadt">{{ numberNeustadt }}</a>
+                     </p>
+                     <p class="center">
+                        Tolkewitzer Str. 2, 01277 Dresden<br>
+                        Tel.: <a :href="`tel:` + numberBlauesWunder">{{ numberBlauesWunder }}</a>
+                     </p>
+                     <p>
+                        Erreichen Sie uns direkt über E-Mail:
+                        <a :href="`mailto:` + mailTo">info@anamit.de</a>
+                     </p>
                      <p>
                         Wir freuen uns auf Ihre Kontaktaufnahme. Schreiben Sie uns und wir melden uns so schnell wie
                         möglich zurück. Vielen Dank!

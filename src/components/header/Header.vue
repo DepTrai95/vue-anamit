@@ -22,6 +22,7 @@ export default {
    },
    data() {
       return {
+         isMobile: "",
          headerHeightMax: false,
          headline: 'Anamit',
          showSubHeader: false,
@@ -79,7 +80,7 @@ export default {
       //loading page check size
       this.checkIsMobile();
       window.addEventListener("scroll", () => {
-         if (!this.checkIsMobile()) {
+         if (!this.isMobile) {
             let currentScrollPos = window.pageYOffset;
             this.handleHeaderVisibility(currentScrollPos);
          }

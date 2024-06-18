@@ -23,8 +23,8 @@
       <label for="select-restaurant"> Bitte ein Lokal auswählen <abbr title="Pflichtfeld">*</abbr> </label>
       <select class="form-control" id="select-restaurant" name="select-restaurant" v-model="restaurant.val" required>
         <option value="">--Bitte Auswahl treffen--</option>
-        <option value="Neustadt">Anamit - Neustadt</option>
-        <option value="BlauesWunder">Anamit - am Blauen Wunder</option>
+        <option value="Anamit - Neustadt">Anamit - Neustadt</option>
+        <option value="Anamit - am Blauen Wunder">Anamit - am Blauen Wunder</option>
       </select>
     </div>
     <!-- DATEPICKER -->
@@ -166,39 +166,38 @@ export default {
     async submitForm() {
       this.validateForm();
 
-      if (!this.formIsValid) {
-        console.log("Form validation failed!");
-        return;
-      } else {
-        const formData = {
-          name: this.name.val,
-          email: this.email.val,
-          message: this.message.val,
-          date: this.formatDate(this.selectedDate.val),
-        };
+      if (!this.formIsValid) return; 
 
-        try {
-          const response = await fetch("/.netlify/functions/sendEmail", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              to: "info@anamit.de", // set email of receiver
-              name: formData.name,
-              email: formData.email,
-              text: formData.message,
-              date: formData.date,
-            }),
-          });
+      const formData = {
+        name: this.name.val,
+        email: this.email.val,
+        message: this.message.val,
+        restaurant: this.restaurant.val,
+        date: this.formatDate(this.selectedDate.val),
+      };
 
-          // console.log(response.body);
-        } catch (error) {
-          console.error("Fehler beim Abschicken des Kontaktformulars:", error);
-        }
+      try {
+        const response = await fetch("/.netlify/functions/sendEmail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: "info@anamit.de", // set email of receiver
+            name: formData.name,
+            email: formData.email,
+            text: formData.message,
+            restaurant: formData.restaurant,
+            date: formData.date,
+          }),
+        });
 
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         this.$router.push("/success");
+      } catch (error) {
+        console.error("Fehler beim Abschicken des Kontaktformulars:", error);
       }
+
     },
   },
   mounted() {
