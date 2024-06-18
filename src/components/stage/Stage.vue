@@ -43,6 +43,14 @@
             default: false,
          },
       },
+      watch: {
+         '$route': {
+            immediate: true,
+            handler(to) {
+               this.animateStageHeadline();
+            }
+         }
+      },
       methods: {
          scrollToNextSection() {
             const nextSection = document.querySelector('.content');
@@ -54,23 +62,23 @@
                   behavior: 'smooth'
                });
             }
+         },
+         animateStageHeadline() {
+            const header = document.querySelector('h1');
+
+            setTimeout(() => {
+               header?.classList.add('visible');
+            }, 250);
+
+            setTimeout(() => {
+               const headerDescr = document.querySelector('h2');
+               const arrow = document.querySelector('.stage__arrow-down');
+
+               headerDescr?.classList.add('visible');
+               arrow?.classList.add('visible');
+            }, 400);
          }
       },
-      mounted() {
-         const header = document.querySelector('h1');
-         
-         setTimeout(() => {
-            header?.classList.add('visible');
-         }, 250);
-         
-         setTimeout(() => {
-            const headerDescr = document.querySelector('h2');
-            const arrow = document.querySelector('.stage__arrow-down');
-            
-            headerDescr?.classList.add('visible');
-            arrow?.classList.add('visible');
-         }, 400);
-      }
    }
 </script>
 
