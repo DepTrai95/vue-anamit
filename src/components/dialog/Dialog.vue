@@ -27,6 +27,7 @@ export default {
    methods: {
       closeDialog() {
          this.dialogIsOpen = false;
+         document.body.removeAttribute('style');
       },
    },
    mounted() {
