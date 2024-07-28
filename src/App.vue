@@ -7,18 +7,21 @@
     </transition>
   </router-view>
   <Footer></Footer>
+  <Dialog></Dialog>
 </template>
 
 <script>
 import SVGList from './assets/svg/SVGList.vue';
 import Header from './components/header/Header.vue';
 import Footer from './components/footer/Footer.vue';
+import Dialog from './components/dialog/Dialog.vue';
 
 export default {
   components: {
     SVGList,
     Header,
     Footer,
+    Dialog,
   },
 };
 </script>

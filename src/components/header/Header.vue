@@ -97,7 +97,7 @@ export default {
    inset-inline: 0;
    position: absolute;
    transition: background-color 0.25s ease-in-out;
-   z-index: 100;
+   z-index: 101;
 
    @include for-tablet-portrait-up {
       position: fixed;
