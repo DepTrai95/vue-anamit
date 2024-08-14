@@ -1,15 +1,17 @@
 <template>
-   <dialog v-if="dialogIsOpen" class="dialog">
-      <h2>Kontaktaufnahme wieder möglich</h2>
-      <p>Aufgrund eines technischen Problems in unserem System konnten wir zwischen dem 20.06.2024 und 27.07.2024
-         keine Nachrichten/Reservierungen empfangen die über E-Mail oder über unser Kontaktformular versendet worden sind.</p>
-      <p>Wir entschuldigen uns für etwaige Unannehmlichkeiten und möchten Sie bitten, Ihre Anfrage oder Reservierung
-         erneut zu senden, falls Sie in letzter Zeit keine Antwort von uns erhalten haben.</p>
-      <p>Das Problem wurde inzwischen behoben und unser System funktioniert wieder wie gewohnt. Vielen Dank für Ihr
-         Verständnis.</p>
-      <base-button mode="btn--primary" @click="closeDialog">Schließen</base-button>
-
-   </dialog>
+   <Teleport to="body">
+      <dialog v-if="dialogIsOpen" class="dialog">
+         <h2>Kontaktaufnahme wieder möglich</h2>
+         <p>Aufgrund eines technischen Problems in unserem System konnten wir zwischen dem 20.06.2024 und 27.07.2024
+            keine Nachrichten/Reservierungen empfangen die über E-Mail oder über unser Kontaktformular versendet worden
+            sind.</p>
+         <p>Wir entschuldigen uns für etwaige Unannehmlichkeiten und möchten Sie bitten, Ihre Anfrage oder Reservierung
+            erneut zu senden, falls Sie in letzter Zeit keine Antwort von uns erhalten haben.</p>
+         <p>Das Problem wurde inzwischen behoben und unser System funktioniert wieder wie gewohnt. Vielen Dank für Ihr
+            Verständnis.</p>
+         <base-button mode="btn--primary" @click="closeDialog">Schließen</base-button>
+      </dialog>
+   </Teleport>
 </template>
 
 <script>
