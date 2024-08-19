@@ -14,7 +14,7 @@ To build/run this project locally, nvm, npm and Node v18+ are required.
 
 ## Running the project locally
 
-Run `npm run dev` for a dev server. Navigate to `http://localhost:5173/`. The app should automatically reload if you change any of the source files.
+Run `npm run dev` for a dev server. Navigate to `http://localhost:5173/`. The app should automatically reload on any changes of the source files thanks to Vites HMR.
 
 ## Build
 
