@@ -29,15 +29,18 @@
     </div>
     <!-- DATEPICKER -->
     <div class="form-group" :class="{ invalid: !selectedDate.isValid }">
-      <label for="selectedDate">
+      <label for="dp-input-selectedDate">
         Datum und Zeit <abbr title="Pflichtfeld">*</abbr>
       </label>
       <VueDatePicker 
+        uid="selectedDate"
         v-model="selectedDate.val"
         class="customCalendarStyle"
         :minDate="minDate" 
         :maxDate="maxDate"
         @blur="clearValidity('selectedDate')" placeholder="DD/MM/YYYY - HH:MM"
+        locale="de"
+        cancelText="Abbrechen" selectText="Auswählen"
       >
       </VueDatePicker>
       <p v-if="!selectedDate.isValid" :class="{ invalid: !selectedDate.isValid }">
