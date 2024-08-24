@@ -15,8 +15,8 @@
             <h3>ÖFFNUNGSZEITEN:</h3>
             <p>
                Montag - Freitag:<br>
-               12:30 - 14:30 Uhr<br>
-               17:00 - 22:30 Uhr
+               12:00 - 15:00 Uhr<br>
+               17:30 - 22:30 Uhr
             </p>
             <p>Samstage und Feiertage:<br>
                12:00 - 23:00 Uhr
