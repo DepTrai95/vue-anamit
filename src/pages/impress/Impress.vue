@@ -10,7 +10,7 @@
          <p>Gesellschafter: Frau Thu Minh Glei</p>
          <h3>KONTAKT:</h3>
          <p>Telefon: +49 (0) 351 656 77 999</p>
-         <p>E-Mail: info@aroi-dresden.de</p>
+         <p>E-Mail: info@anamit.de</p>
          <h3>REGISTEREINTRAG</h3>
          <p>Eintragung im Handelsregister. Registergericht: Amtsgericht Dresden.</p>
          <p>Registernummer: HRB 35581</p>
