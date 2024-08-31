@@ -1,26 +1,23 @@
 <template>
    <div class="content">
+      <skip-links></skip-links>
       <Article :article="aboutUsText">
          <div class="grid-item">
             <picture>
-               <source 
-                  type="image/webp" 
-                  srcset="
+               <source type="image/webp" srcset="
                      /img/hanoi-street-small.webp 400w,
                      /img/hanoi-street-medium.webp 600w,
-                     /img/hanoi-street-large.webp 1200w" 
+                     /img/hanoi-street-large.webp 1200w"
                   sizes="(max-width: 599px) 400px, (max-width: 899px) 600px, 1200px" />
                <img src="/img/hanoi-street-large.webp" width="600" loading="lazy" alt="" />
             </picture>
          </div>
          <div class="grid-item">
             <picture>
-               <source 
-                  type="image/webp" 
-                  srcset="
+               <source type="image/webp" srcset="
                      /img/hanoi-street-seller-small.webp 400w,
                      /img/hanoi-street-seller-medium.webp 600w,
-                     /img/hanoi-street-seller-large.webp 1200w" 
+                     /img/hanoi-street-seller-large.webp 1200w"
                   sizes="(max-width: 599px) 400px, (max-width: 899px) 600px, 1200px" />
                <img src="/img/hanoi-street-seller-large.webp" width="600" loading="lazy" alt="" />
             </picture>
@@ -29,12 +26,10 @@
       <SubHeader :subHeader="subHeaderContent"></SubHeader>
       <Article class="reverse" :article="menuText">
          <picture>
-            <source 
-               type="image/webp" 
-               srcset="
+            <source type="image/webp" srcset="
                   /img/cha-gio-re-small.webp 400w,
                   /img/cha-gio-re-medium.webp 600w,
-                  /img/cha-gio-re-large.webp 1200w" 
+                  /img/cha-gio-re-large.webp 1200w"
                sizes="(max-width: 599px) 400px, (max-width: 899px) 600px, 1200px" />
             <img src="/img/cha-gio-re-large.webp" width="1200" loading="lazy" alt="" />
          </picture>
@@ -43,11 +38,13 @@
 </template>
 
 <script>
+import SkipLinks from '../../components/skiplinks/SkipLinks.vue';
 import Article from '../../components/article/Article.vue';
 import SubHeader from '../../components/header/SubHeader.vue';
 
 export default {
    components: {
+      SkipLinks,
       Article,
       SubHeader,
    },

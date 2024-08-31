@@ -1,5 +1,6 @@
 <template>
   <SVGList></SVGList>
+  <div id="skip-links-home"></div>
   <Header></Header>
   <router-view v-slot="slotProps">
     <transition name="route" mode="out-in" @before-enter="beforeEnter">

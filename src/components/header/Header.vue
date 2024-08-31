@@ -106,6 +106,7 @@ export default {
 
 .header--inverted {
    background-color: $color-white;
+   box-shadow: 0 15px 20px rgba(90, 90, 90, 0.1);
    color: $color-header;
 }
 </style>
