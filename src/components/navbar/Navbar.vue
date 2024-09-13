@@ -13,8 +13,8 @@
             <nav class="nav-main">
                <ul class="list--unstyled">
                   <LinkRouter link="/" label="Home" />
-                  <LinkRouter link="/menu" label="Our Menu" />
-                  <LinkRouter link="/contact" label="Contact" />
+                  <LinkRouter link="/menu" label="Menu" />
+                  <LinkRouter link="/contact" label="Kontakt" />
                </ul>
                <ul class="list--unstyled social-media-menu">
                   <li class="social-media-menu__item">
