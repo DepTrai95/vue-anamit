@@ -3,13 +3,20 @@
       <div class="restaurant__information">
          <h3>ANAMIT – VIETNAMESE AUTHENTIC</h3>
          <div class="footer__addresses">
-            <p>
-               Louisenstraße 30<br>
-               01099 Dresden
-            </p>
-            <p>Tolkewitzer Straße 2<br>
-               01277 Dresden
-            </p>
+            <a 
+               class="footer__link" 
+               href="https://maps.app.goo.gl/D7JvMVeDCumzBLwV9"
+               target="_blank"
+               noopener
+               noreferrer
+            >Louisenstraße 30 - 01097 Dresden</a>
+            <a 
+               class="footer__link" 
+               href="https://maps.app.goo.gl/Ddj7o28CvLnZ4VD67"
+               target="_blank"
+               noopener
+               noreferrer
+            >Tolkewitzer Straße 2 - 01277 Dresden</a>
          </div>
          <div class="footer__opening-hours">
             <h3>ÖFFNUNGSZEITEN:</h3>
@@ -29,14 +36,16 @@
       </div>
       <div class="copyright__area">
          <svg class="blurp--bottom" width="192" height="61" id="svg-footer-bottom" viewBox="0 0 160.7 61.5">
-            <path fill="#fff" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path>
+            <path fill="#fff"
+               d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z">
+            </path>
          </svg>
          <div class="btn--top">
             <a href="#" class="btn--top_text">
                <span class="sr-only">Gehe zum Start der Seite</span>
-					<span class="btn__arrow btn__arrow--top"></span>
-					<span class="btn__arrow btn__arrow--bottom"></span>
-				</a>
+               <span class="btn__arrow btn__arrow--top"></span>
+               <span class="btn__arrow btn__arrow--bottom"></span>
+            </a>
          </div>
          <div class="copyright__area__container">
             <ul class="copyright__area__container__list">
@@ -112,7 +121,21 @@ export default {
    &__addresses,
    &__opening-hours {
       @include responsive-font-size(1.8rem, 2rem);
-      margin-block-end: 5rem;
+      margin-block-end: 3rem;
+   }
+
+   &__link {
+      color: $color-white;
+      display: flex;
+      line-height: 1.5;
+      margin-block: 0.5rem;
+      text-decoration: none;
+      transition: color $transition-timing;
+
+      &:hover,
+      &:focus {
+         color: $color-primary;
+      }
    }
 }
 
@@ -133,7 +156,7 @@ export default {
    position: relative;
 
    @include for-tablet-portrait-up {
-      padding-block: 6rem 5rem;   
+      padding-block: 4rem;   
    }
 }
 
