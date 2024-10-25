@@ -1,25 +1,32 @@
 <template>
-   <section>
+   <section class="imprint">
       <div class="inner">
-         <h2>ANGABEN GEMÄSS § 5 TMG</h2>
+         <h2>Angaben gemäss § 5 TMG</h2>
          <p>Somico GmbH</p>
          <p>An der Dreikönigskirche 8</p>
          <p>01099 Dresden</p>
-         <h3>VERTRETEN DURCH:</h3>
+
+         <h3>Vertreten durch:</h3>
          <p>Geschäftsführer: Herr Hai Son Nguyen</p>
          <p>Gesellschafter: Frau Thu Minh Glei</p>
-         <h3>KONTAKT:</h3>
+
+         <h3>Kontakt:</h3>
          <p>Telefon: +49 (0) 351 656 77 999</p>
          <p>E-Mail: info@anamit.de</p>
-         <h3>REGISTEREINTRAG</h3>
+
+         <h3>Registereintrag</h3>
          <p>Eintragung im Handelsregister. Registergericht: Amtsgericht Dresden.</p>
          <p>Registernummer: HRB 35581</p>
          <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE 307 261 051</p>
-         <h3>AUFSICHTSBEHÖRDE:</h3>
+
+         <h3>Aufsichtsbehörde:</h3>
          <p>Landratsamt Dresden</p>
-         <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-            Verbraucherschlichtungsstelle teilzunehmen.</p>
-         <h3 class="h2">HAFTUNG FÜR INHALTE</h3>
+         <p>
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+            Verbraucherschlichtungsstelle teilzunehmen.
+         </p>
+
+         <h3 class="h2">Haftung für Inhalte</h3>
          <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen
             Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
             übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die
@@ -28,7 +35,8 @@
             bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer
             konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir
             diese Inhalte umgehend entfernen.</p>
-         <h3 class="h2">HAFTUNG FÜR LINKS</h3>
+
+         <h3 class="h2">Haftung für Links</h3>
          <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben.
             Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
             verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten
@@ -37,7 +45,8 @@
          <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer
             Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links
             umgehend entfernen.</p>
-         <h3 class="h2">URHEBERRECHT</h3>
+
+         <h3 class="h2">Urheberrecht</h3>
          <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
             Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
             Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
@@ -57,12 +66,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.imprint {
+   margin-block: 3em;
+}
+
 h2, h3 {
-   margin-block: 4rem 3rem;
+   margin-block: 3rem;
+   text-transform: uppercase;
 }
 
 p {
    line-height: 1.6;
-   margin-block-end: 2rem;
+   margin-block-end: 1rem;
 }
 </style>

@@ -50,6 +50,7 @@
          <div class="copyright__area__container">
             <ul class="copyright__area__container__list">
                <LinkRouter link="/impressum" label="Impressum" />
+               <LinkRouter link="/privacy" label="Datenschutz" />
                <LinkRouter link="/contact" label="Kontakt" />
                <li>
                   <a href="https://www.facebook.com/anamit.restaurant/">Anamit on Facebook</a>
