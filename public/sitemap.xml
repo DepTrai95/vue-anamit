@@ -16,4 +16,8 @@
     <loc>https://anamit.de/impressum</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://anamit.de/privacy</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
