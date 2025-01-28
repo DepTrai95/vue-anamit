@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from 'vite'
+import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 
 const apiKeys = [
@@ -13,10 +14,16 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [vue()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
+    },
     css: { 
       preprocessorOptions: {
         scss: {
           additionalData: `@import "./src/assets/style/global.scss";`,
+          api: 'legacy',
         },
       },
     },

@@ -1,7 +1,7 @@
 <template>
    <footer class="footer">
       <div class="restaurant__information">
-         <h3>ANAMIT – VIETNAMESE AUTHENTIC</h3>
+         <h3>Anamit - Vietnamese Authentic</h3>
          <div class="footer__addresses">
             <a 
                class="footer__link" 
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import LinkRouter from '../link/LinkRouter.vue'
+import LinkRouter from '@/components/link/LinkRouter.vue'
 
 export default {
    components: {
@@ -138,6 +138,10 @@ export default {
          color: $color-primary;
       }
    }
+}
+
+h3 {
+   text-transform: uppercase;
 }
 
 .restaurant__information {

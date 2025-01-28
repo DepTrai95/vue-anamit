@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import TheNavbar from '../navbar/Navbar.vue';
-import TheStage from '../stage/Stage.vue';
+import TheNavbar from '@/layout/navbar/Navbar.vue';
+import TheStage from '@/layout/stage/Stage.vue';
 
 export default {
    components: {

@@ -1,13 +1,13 @@
 import { createRouter } from "vue-router";
 import { createWebHistory } from "vue-router";
 
-import Home from "./pages/home/HomePage.vue";
-import Menu from "./pages/menu/Menu.vue";
-import Contact from "./pages/contact/ContactPage.vue";
-import Imprint from "./pages/imprint/Imprint.vue";
-import Privacy from './pages/privacy/Privacy.vue';
-import Success from "./pages/success/Success.vue";
-import NotFound from "./pages/NotFound.vue";
+import Home from "@/pages/home/HomePage.vue";
+import Menu from "@/pages/menu/Menu.vue";
+import Contact from "@/pages/contact/ContactPage.vue";
+import Imprint from "@/pages/imprint/Imprint.vue";
+import Privacy from '@/pages/privacy/Privacy.vue';
+import Success from "@/pages/success/Success.vue";
+import NotFound from "@/pages/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(),

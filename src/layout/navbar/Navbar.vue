@@ -34,7 +34,7 @@
          <div class="mobile-navigation" v-if="isMobile">
             <button id="mobile-navigation-button" type="button" class="navigation__button--mobile menu-toggle"
                :aria-expanded="isMenuExpanded ? 'true' : 'false'" aria-haspopup="true" aria-controls="mobile-navigation"
-               @click="toggleMenu">
+               aria-owns="mobile-navigation" @click="toggleMenu">
                <span class="sr-only">Hauptnavigation</span>
                <span class="hamburger" :class="{ 'is-open': isMenuExpanded }">
                   <span></span>
@@ -43,8 +43,8 @@
                </span>
             </button>
 
-            <div class="nav-main__wrapper" v-if="isMenuExpanded" @click="toggleMenu">
-               <nav class="nav-main">
+            <div class="nav-main__wrapper" :aria-hidden="!isMenuExpanded" @click="toggleMenu">
+               <nav class="nav-main" aria-label="Hauptnavigation" v-if="isMenuExpanded">
                   <ul class="list--unstyled">
                      <LinkRouter link="/" label="Home" />
                      <LinkRouter link="/menu" label="Menu" />
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import LinkRouter from "../link/LinkRouter.vue";
+import LinkRouter from "@/components/link/LinkRouter.vue";
 
 export default {
    components: {
@@ -203,8 +203,9 @@ export default {
       position: relative;
    }
 
-   .nav-main__wrapper {
+   .nav-main {
       display: flex;
+      flex-direction: column;
 
       @include for-phone-only {
          align-items: center;
@@ -218,11 +219,6 @@ export default {
          width: 100%;
          z-index: 900;
       }
-   }
-
-   .nav-main {
-      display: flex;
-      flex-direction: column;
 
       li {
          @include responsive-font-size(1.8rem, 2rem);

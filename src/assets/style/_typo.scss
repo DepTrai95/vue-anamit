@@ -6,35 +6,35 @@
   font-family: "Cabin";
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/Cabin-Regular.ttf") format("truetype");
+  src: url("@/assets/fonts/Cabin-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Cabin";
   font-weight: 500;
   font-display: swap;
-  src: url("/fonts/Cabin-Medium.ttf") format("truetype");
+  src: url("@/assets/fonts/Cabin-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Cabin";
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/Cabin-Bold.ttf") format("truetype");
+  src: url("@/assets/fonts/Cabin-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "TextMeOne";
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/TextMeOne.ttf") format("truetype");
+  src: url("@/assets/fonts/TextMeOne.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "HerrVonMuellerhoff";
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/HerrVonMuellerhoff.ttf") format("truetype");
+  src: url("@/assets/fonts/HerrVonMuellerhoff.ttf") format("truetype");
 }
 
 body {
