@@ -2,9 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 
-const apiKeys = [
-  'SENDGRID_API_KEY',
-];
+const apiKeys = ['SENDGRID_API_KEY', 'POSTMARK_API_KEY'];
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
